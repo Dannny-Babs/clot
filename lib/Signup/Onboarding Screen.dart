@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({super.key});
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
@@ -130,12 +130,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         height: 30,
                       ),
                       Container(
-                        margin: EdgeInsets.all(30),
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
                           color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         child: TextButton(
                           onPressed: () {
@@ -147,7 +146,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                           const LoginScreen()));
                             } else {
                               _pageController.nextPage(
-                                  duration: Duration(milliseconds: 800),
+                                  duration: const Duration(milliseconds: 800),
                                   curve: Curves.easeInOutQuint);
                             }
                           },
@@ -156,8 +155,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             style: TextStyle(
                                 color: AppColors.white,
                                 fontFamily: GoogleFonts.dmSans().fontFamily,
-                                fontSize: 27,
-                                fontWeight: FontWeight.w700),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                       ),
