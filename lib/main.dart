@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
             home: const OnboardingPage(),
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              primaryColor: const Color(0xFF8E6CEF),
+              
               useMaterial3: true,
               fontFamily: GoogleFonts.dmSans().fontFamily,
               textTheme: GoogleFonts.dmSansTextTheme(),
