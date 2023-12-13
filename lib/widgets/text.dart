@@ -29,7 +29,7 @@ class TextWidget extends StatelessWidget {
   }
 }
 
-class TextFieldWidget extends StatelessWidget {
+class TextFieldWidget extends StatefulWidget {
   TextFieldWidget(
       {super.key,
       required this.hintText,
@@ -42,18 +42,43 @@ class TextFieldWidget extends StatelessWidget {
   late Color color;
 
   @override
+  // ignore: library_private_types_in_public_api
+  _TextFieldWidgetState createState() => _TextFieldWidgetState();
+}
+
+class _TextFieldWidgetState extends State<TextFieldWidget> {
+  bool _obscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText:
+          widget.hintText == 'Password' || widget.hintText == 'Confirm Password'
+              ? _obscureText
+              : false,
       decoration: InputDecoration(
-        
+        suffixIcon: widget.hintText == 'Password' ||
+                widget.hintText == 'Confirm Password'
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                icon: Icon(
+                  _obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.black54,
+                ),
+              )
+            : null,
         filled: true,
         fillColor: Colors.grey[200],
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.w400,
+            fontSize: widget.fontSize,
+            fontWeight: widget.fontWeight,
             fontFamily: GoogleFonts.dmSans().fontFamily,
-            color: color),
+            color: widget.color),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,

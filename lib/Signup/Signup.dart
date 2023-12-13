@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/widgets/button.dart';
 import 'package:Clot/widgets/text.dart';
@@ -5,73 +7,67 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 
-import 'Signup.dart';
-import 'forgotpassword.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.all(28),
+        padding: const EdgeInsets.all(21),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
               height: 20,
             ),
-            Center(
-              child: Image.asset(
-                'assets/images/clot.png',
-                width: 80,
-                height: 80,
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.grey,
+                borderRadius: BorderRadius.circular(60),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Ionicons.chevron_back,
+                  color: AppColors.black,
+                  size: 24,
+                ),
               ),
             ),
             const SizedBox(
               height: 50,
             ),
-            TextWidget(text: 'Sign In', fontSize: 45),
             TextWidget(
-              text: 'Sign in to continue your shopping experience ',
-              fontSize: 17,
-              fontWeight: FontWeight.w500,
-              color: Colors.black54,
-            ),
+                text: 'Create Account',
+                fontSize: 37,
+                fontWeight: FontWeight.w700),
             const SizedBox(
-              height: 50,
+              height: 40,
+            ),
+            TextFieldWidget(hintText: 'Firstname', fontSize: 18),
+            const SizedBox(
+              height: 12.5,
+            ),
+            TextFieldWidget(hintText: 'Lastname', fontSize: 18),
+            const SizedBox(
+              height: 12.5,
             ),
             TextFieldWidget(hintText: 'Email Address', fontSize: 18),
             const SizedBox(
-              height: 20,
+              height: 12.5,
             ),
             TextFieldWidget(hintText: 'Password', fontSize: 18),
             const SizedBox(
-              height: 20,
+              height: 12.5,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ForgotPasswordScreen()),
-                    );
-                  },
-                  child: TextWidget(
-                    text: 'Forgot Password?',
-                    fontSize: 15,
-                    color: AppColors.primary,
-                  ),
-                ),
-              ],
-            ),
+            TextFieldWidget(hintText: 'Confirm Password', fontSize: 18),
             const Spacer(),
-            MyButton(onPressed: () {}, text: 'Sign in'),
+            MyButton(onPressed: () {}, text: 'Continue'),
             const SizedBox(
               height: 10,
             ),
@@ -79,7 +75,7 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account?',
+                  'Already have an account?',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -87,15 +83,9 @@ class LoginScreen extends StatelessWidget {
                       color: AppColors.black),
                 ),
                 GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()),
-                      );
-                    },
+                    onTap: () {},
                     child: TextWidget(
-                        text: 'Sign up',
+                        text: 'Login',
                         fontSize: 16,
                         color: AppColors.primary,
                         fontWeight: FontWeight.w600))
@@ -105,5 +95,6 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  ;
   }
 }

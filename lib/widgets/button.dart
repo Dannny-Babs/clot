@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:Clot/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 55,
       decoration: BoxDecoration(
         color: color,
         borderRadius: const BorderRadius.all(Radius.circular(30)),
