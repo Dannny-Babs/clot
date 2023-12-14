@@ -1,8 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/widgets/button.dart';
 import 'package:Clot/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// ignore: unused_import
 import 'package:ionicons/ionicons.dart';
 
 import 'Signup.dart';
@@ -73,19 +76,20 @@ class LoginScreen extends StatelessWidget {
             const Spacer(),
             MyButton(onPressed: () {}, text: 'Sign in'),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account?',
+                  'Don\'t have an account? ',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       fontFamily: GoogleFonts.dmSans().fontFamily,
                       color: AppColors.black),
                 ),
+
                 GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -95,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                       );
                     },
                     child: TextWidget(
-                        text: 'Sign up',
+                        text: ' Sign up',
                         fontSize: 16,
                         color: AppColors.primary,
                         fontWeight: FontWeight.w600))

@@ -20,11 +20,11 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
+      style: GoogleFonts.dmSans(
           fontSize: fontSize,
           fontWeight: fontWeight,
-          fontFamily: GoogleFonts.dmSans().fontFamily,
-          color: color),
+          color: color,
+          letterSpacing: 0),
     );
   }
 }

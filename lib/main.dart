@@ -1,6 +1,6 @@
 // ignore_for_file: dead_code
 
-import 'package:Clot/Signup/Onboarding%20Screen.dart';
+import 'package:Clot/Signup%20Screens/Onboarding%20Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +9,7 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key});
+  const MainApp({ super.key}); 
 
   @override
   Widget build(BuildContext context) {

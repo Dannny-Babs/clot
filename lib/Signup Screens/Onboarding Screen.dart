@@ -1,5 +1,5 @@
 // ignore: file_names
-import 'package:Clot/Signup/Login.dart';
+import 'package:Clot/Signup%20Screens/Login.dart';
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/utils/onboarding_text.dart';
 import 'package:flutter/material.dart';
