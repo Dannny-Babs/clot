@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:Clot/Home%20screens/homescreen.dart';
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/widgets/button.dart';
 import 'package:Clot/widgets/text.dart';
@@ -249,7 +250,14 @@ class _SetupScreenState extends State<SetupScreen> {
               height: 10,
             ),
             const Spacer(),
-            MyButton(onPressed: () {}, text: 'Continue'),
+            MyButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Homescreen()),
+                  );
+                },
+                text: 'Continue'),
             const SizedBox(
               height: 70,
             ),

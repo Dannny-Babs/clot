@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 // ignore: unused_import
 import 'package:ionicons/ionicons.dart';
 
+import '../Home screens/homescreen.dart';
 import 'Signup.dart';
 import 'forgotpassword.dart';
 
@@ -74,7 +75,14 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            MyButton(onPressed: () {}, text: 'Sign in'),
+            MyButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Homescreen()),
+                  );
+                },
+                text: 'Sign in'),
             const SizedBox(
               height: 15,
             ),
@@ -89,7 +97,6 @@ class LoginScreen extends StatelessWidget {
                       fontFamily: GoogleFonts.dmSans().fontFamily,
                       color: AppColors.black),
                 ),
-
                 GestureDetector(
                     onTap: () {
                       Navigator.push(
