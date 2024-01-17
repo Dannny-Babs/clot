@@ -9,7 +9,7 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
   }
   final StoreRepository api = StoreRepository();
 
-  Future<void> _handlesStoreProductRequested(
+  Future<void> _handleStoreProductRequested(
       StoreProductRequested event, Emitter<StoreState> emit) async {
     try {
       emit(
