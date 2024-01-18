@@ -15,3 +15,16 @@ class StoreProductRemovedCart extends StoreEvent {
 
   const StoreProductRemovedCart(this.cartId);
 }
+
+
+class StoreProductFavorite extends StoreEvent {
+  final int productId;
+
+  const StoreProductFavorite(this.productId);
+}  
+
+class StoreProductUnFavorite extends StoreEvent {
+  final int productId;
+
+  const StoreProductUnFavorite(this.productId);
+}
