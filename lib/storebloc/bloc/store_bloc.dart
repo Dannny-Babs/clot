@@ -3,9 +3,7 @@ import 'package:Clot/utils/store.dart';
 
 class StoreBloc extends Bloc<StoreEvent, StoreState> {
   StoreBloc() : super(const StoreState()) {
-    on<StoreProductRequested>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<StoreProductRequested>(_handleStoreProductRequested);
   }
   final StoreRepository api = StoreRepository();
 
@@ -22,7 +20,7 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
           productStatus: StoreRequest.requestSuccess,
           products: response,
         ),
-      ); 
+      );
     } catch (e) {
       emit(state.copyWith(productStatus: StoreRequest.requestFailure));
     }

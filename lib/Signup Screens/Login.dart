@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, file_names
 
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/widgets/button.dart';
@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../Home screens/homescreen.dart';
-import 'Signup.dart';
+import 'signUp.dart';
 import 'forgotpassword.dart';
 
 class LoginScreen extends StatelessWidget {

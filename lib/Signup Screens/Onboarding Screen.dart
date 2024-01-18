@@ -1,4 +1,5 @@
-// ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:Clot/Signup%20Screens/Login.dart';
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/utils/onboarding_text.dart';

@@ -1,6 +1,7 @@
 import 'package:Clot/utils/colors.dart';
 import 'package:Clot/utils/store.dart';
 import 'package:Clot/widgets/button.dart';
+import 'package:Clot/widgets/cards.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,9 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => StoreBloc(), child: const HomeScreenLoading());
+      create: (context) => StoreBloc(),
+      child: const HomeScreenLoading(),
+    );
   }
 }
 
@@ -80,68 +83,92 @@ class _HomeScreenLoadingState extends State<HomeScreenLoading> {
           ),
         ),
       ),
-      body: BlocBuilder<StoreBloc, StoreState>(
-        builder: (context, state) {
-          if (state.productStatus == StoreRequest.requestInProgress) {
-            return const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 20),
-                  Text('Chill, your network slow die...'),
-                ],
-              ),
-            );
-          }
-          if (state.productStatus == StoreRequest.requestFailure) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Something went wrong'),
-                  MyButton(
-                      onPressed: () => context
-                          .read<StoreBloc>()
-                          .add(StoreProductRequested()),
-                      text: 'Try Again'),
-                ],
-              ),
-            );
-          }
-          if (state.productStatus == StoreRequest.unknown) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(50),
+      body: Center(
+        child: BlocBuilder<StoreBloc, StoreState>(
+          builder: (context, state) {
+            if (state.productStatus == StoreRequest.requestInProgress) {
+              return const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 20),
+                    Text('Chill, your network slow die...',
+                        style: TextStyle(fontSize: 18)),
+                  ],
+                ),
+              );
+            }
+            if (state.productStatus == StoreRequest.requestFailure) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Something went wrong',
+                        style: TextStyle(fontSize: 18)),
+                    const SizedBox(height: 55),
+                    MyButton(
+                        onPressed: () => context
+                            .read<StoreBloc>()
+                            .add(StoreProductRequested()),
+                        text: 'Try Again',
+                        fontSize: 18),
+                  ],
+                ),
+              );
+            }
+            if (state.productStatus == StoreRequest.unknown) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: const Icon(
+                        Ionicons.cloud_offline_outline,
+                        size: 25,
+                      ),
                     ),
-                    child: const Icon(
-                      Ionicons.cloud_offline_outline,
-                      size: 50,
+                    const SizedBox(height: 10),
+                    const Text(
+                      'No products found',
+                      style: TextStyle(fontSize: 18),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  const Text('No products found'),
-                 const SizedBox(height: 5),
-                  MyButton(
-                      onPressed: () => context
-                          .read<StoreBloc>()
-                          .add(StoreProductRequested()),
-                      text: 'Try Again'),
-                ],
-              ),
-            );
-          }
-          //  (state.productStatus == StoreRequest.requestSuccess) 
-          return const Text('Success');
-        },
+                    const SizedBox(height: 75),
+                    MyButton(
+                        onPressed: () => context
+                            .read<StoreBloc>()
+                            .add(StoreProductRequested()),
+                        text: 'Try Again',
+                        fontSize: 18),
+                  ],
+                ),
+              );
+            }
+            //  (state.productStatus == StoreRequest.requestSuccess)
+            return GridView.builder(
+                padding: const EdgeInsets.all(10),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.75,
+                ),
+                itemCount: state.products.length,
+                itemBuilder: (context, index) => ProductCard(
+                      productId: state.products[index].id.toString(),
+                      productimage: state.products[index].image,
+                      productName: state.products[index].title,
+                      price: state.products[index].price,
+                    ));
+          },
+        ),
       ),
     );
   }

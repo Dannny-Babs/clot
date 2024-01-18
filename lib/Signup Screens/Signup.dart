@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, file_names
 
 import 'package:Clot/Home%20screens/homescreen.dart';
 import 'package:Clot/utils/colors.dart';
@@ -114,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
   }
 }
 
-const List<Widget> Gender = <Widget>[
+const List<Widget> gender = <Widget>[
   Text('Men'),
   Text('Women'),
 ];
@@ -195,7 +195,7 @@ class _SetupScreenState extends State<SetupScreen> {
                 minWidth: MediaQuery.of(context).size.width / 2 - 30,
               ),
               isSelected: _selectedGender,
-              children: Gender,
+              children: gender,
             ),
             const SizedBox(
               height: 20,
