@@ -209,7 +209,7 @@ packages:
     source: hosted
     version: "4.1.4"
   ionicons:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: ionicons
       sha256: "5496bc65a16115ecf05b15b78f494ee4a8869504357668f0a11d689e970523cf"
@@ -360,6 +360,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.1"
+  shimmer:
+    dependency: "direct main"
+    description:
+      name: shimmer
+      sha256: "5f88c883a22e9f9f299e5ba0e4f7e6054857224976a5d9f839d4ebdc94a14ac9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

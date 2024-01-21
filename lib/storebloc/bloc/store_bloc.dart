@@ -1,13 +1,13 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:Clot/utils/store.dart';
+import 'package:clot/utils/store.dart';
 
 class StoreBloc extends Bloc<StoreEvent, StoreState> {
-  StoreBloc() : super(const StoreState()) {
+  StoreBloc() : super(const StoreState(tabIndex: 0)) {
     on<StoreProductRequested>(_handleStoreProductRequested);
     on<StoreProductAddedCart>(_handleStoreProductAddedCart);
     on<StoreProductRemovedCart>(_handleStoreProductRemovedCart);
     on<StoreProductFavorite>(_handleStoreProductFavorite);
     on<StoreProductUnFavorite>(_handleStoreProductUnFavorite);
+    on<TabChange>(_handleTabChange);
   }
   final StoreRepository api = StoreRepository();
 
@@ -61,7 +61,7 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
         favoriteIds: {...state.favoriteIds, event.productId},
       ),
     );
-  } 
+  }
 
   Future<void> _handleStoreProductUnFavorite(
     StoreProductUnFavorite event,
@@ -73,6 +73,15 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
       ),
     );
   }
+
+  Future<void> _handleTabChange(
+    TabChange event,
+    Emitter<StoreState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        tabIndex: event.tabIndex,
+      ),
+    );
+  }
 }
-
-

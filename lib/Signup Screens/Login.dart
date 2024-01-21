@@ -1,14 +1,11 @@
 // ignore_for_file: depend_on_referenced_packages, file_names
 
-import 'package:Clot/utils/colors.dart';
-import 'package:Clot/widgets/button.dart';
-import 'package:Clot/widgets/text.dart';
+import 'package:clot/utils/colors.dart';
+import 'package:clot/widgets/button.dart';
+import 'package:clot/widgets/text.dart';
+import 'package:clot/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// ignore: unused_import
-import 'package:ionicons/ionicons.dart';
-
-import '../Home screens/homescreen.dart';
 import 'signUp.dart';
 import 'forgotpassword.dart';
 
@@ -79,7 +76,8 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Homescreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const MyBottomNavBar()),
                   );
                 },
                 text: 'Sign in'),

@@ -1,5 +1,11 @@
-export 'package:Clot/storebloc/bloc/store_bloc.dart';
-export 'package:Clot/storebloc/bloc/store_event.dart';
-export 'package:Clot/storebloc/bloc/store_state.dart';
-export 'package:Clot/storebloc/models/store.dart';
-export 'package:Clot/storebloc/models/repository/store_repository.dart';
+export 'package:clot/storebloc/bloc/store_bloc.dart';
+export 'package:clot/storebloc/bloc/store_event.dart';
+export 'package:clot/storebloc/bloc/store_state.dart';
+export 'package:clot/storebloc/models/storemodels.dart';
+export 'package:clot/storebloc/models/repository/store_repository.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:google_fonts/google_fonts.dart';
+export 'package:clot/utils/colors.dart';
+export 'package:ionicons/ionicons.dart';
+export 'package:clot/widgets/button.dart';
+export 'package:clot/widgets/text.dart';

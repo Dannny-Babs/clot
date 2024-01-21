@@ -4,11 +4,13 @@
         "Firstname",
         "forgotpassword",
         "Gabarito",
+        "heroicons",
         "Homescreen",
         "ionicons",
         "Lastname",
         "LTRB",
         "productimage",
-        "Signup"
+        "Signup",
+        "storebloc"
     ]
 }

@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
-import 'package:Clot/Signup%20Screens/Login.dart';
-import 'package:Clot/utils/colors.dart';
-import 'package:Clot/utils/onboarding_text.dart';
+import 'package:clot/Signup%20Screens/Login.dart';
+import 'package:clot/utils/colors.dart';
+import 'package:clot/utils/onboarding_text.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
@@ -15,12 +15,12 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  int CurrentIndex = 0;
+  int currentIndex = 0;
   PageController _pageController = PageController();
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: CurrentIndex);
+    _pageController = PageController(initialPage: currentIndex);
   }
 
   @override
@@ -55,7 +55,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               itemCount: 3,
               onPageChanged: (index) {
                 setState(() {
-                  CurrentIndex = index;
+                  currentIndex = index;
                 });
               },
               itemBuilder: (context, index) {
@@ -96,10 +96,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             duration: const Duration(milliseconds: 300),
                             margin: const EdgeInsets.only(right: 5),
                             height: 10,
-                            width: CurrentIndex == index ? 30 : 10,
+                            width: currentIndex == index ? 30 : 10,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: CurrentIndex == index
+                              color: currentIndex == index
                                   ? Colors.deepPurple
                                   : Colors.deepPurple.withOpacity(0.5),
                             ),
@@ -110,7 +110,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         height: 15,
                       ),
                       Text(
-                        onboardingScreens[CurrentIndex]['title']!,
+                        onboardingScreens[currentIndex]['title']!,
                         style: GoogleFonts.dmSans(
                           fontSize: 32,
                           fontWeight: FontWeight.w800,
@@ -120,7 +120,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         height: 5,
                       ),
                       Text(
-                        onboardingScreens[CurrentIndex]['description']!,
+                        onboardingScreens[currentIndex]['description']!,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 18,
@@ -139,7 +139,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            if (CurrentIndex == 3 - 1) {
+                            if (currentIndex == 3 - 1) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -152,7 +152,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             }
                           },
                           child: Text(
-                            CurrentIndex == 3 - 1 ? 'Get Started' : 'Continue',
+                            currentIndex == 3 - 1 ? 'Get Started' : 'Continue',
                             style: TextStyle(
                                 color: AppColors.white,
                                 fontFamily: GoogleFonts.dmSans().fontFamily,

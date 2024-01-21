@@ -1,11 +1,10 @@
-
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:Clot/utils/colors.dart';
-import 'package:Clot/widgets/button.dart';
-import 'package:Clot/widgets/text.dart';
+import 'package:clot/utils/colors.dart';
+import 'package:clot/widgets/button.dart';
+import 'package:clot/widgets/text.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -32,7 +31,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 icon: const Icon(
-                  Ionicons.chevron_back,
+                  Icons.arrow_back_ios,
                   color: AppColors.black,
                   size: 24,
                 ),
