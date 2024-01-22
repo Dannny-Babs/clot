@@ -15,7 +15,7 @@ The E-commerce Shopping App is a platform that offers a seamless and user-friend
 - Dart
 
 ## API
-The app utilizes the Fakestre API for retrieving product data. The API is linked to a Firebase backend for user authentication.
+The app utilizes the Fakestore API for retrieving product data. The API is linked to a Firebase backend for user authentication.
 
 ## Note
 This app is a personal project and not a full-fledged commercial application.

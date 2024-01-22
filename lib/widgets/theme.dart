@@ -122,7 +122,9 @@ class _ProductCardState extends State<ProductCard> {
                                 : _favorite(widget.productId);
                           },
                           child: Icon(
-                            inFavorite ? Ionicons.heart : Ionicons.heart,
+                            inFavorite
+                                ? Ionicons.heart
+                                : Ionicons.heart_outline,
                             color: inFavorite ? Colors.red : AppColors.black,
                             size: 20,
                           ),

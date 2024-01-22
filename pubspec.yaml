@@ -15,6 +15,7 @@ dependencies:
   dio: ^5.4.0
   ionicons: ^0.2.2
   shimmer: ^3.0.0 
+  lucide_icons: ^0.257.0
 
 dev_dependencies:
   flutter_test:

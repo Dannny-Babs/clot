@@ -7,5 +7,6 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:clot/utils/colors.dart';
 export 'package:ionicons/ionicons.dart';
+export 'package:lucide_icons/lucide_icons.dart';
 export 'package:clot/widgets/button.dart';
 export 'package:clot/widgets/text.dart';
